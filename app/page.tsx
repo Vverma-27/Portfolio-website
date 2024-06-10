@@ -3,8 +3,8 @@ import { headers } from "next/headers";
 
 export default function Home() {
   const headersList = headers();
-  // const os = headersList.get("OS")?.toLowerCase();
-  const os = "mobile";
+  const os = headersList.get("OS")?.toLowerCase();
+  // const os = "mobile";
   return (
     <main className={`${os?.toLowerCase()}`}>
       <HomePage os={os?.toLowerCase() || ""} />
