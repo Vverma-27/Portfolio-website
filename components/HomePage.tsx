@@ -186,29 +186,39 @@ const HomePage = ({ os }: { os: string }) => {
     }
   };
 
-  if (!fullScreen) {
-    return (
-      <div className="w-full h-full flex justify-center items-center">
-        <div className="bg-white p-8 rounded shadow-lg text-center">
-          <h2 className="mb-4 text-lg font-bold">Enter Fullscreen</h2>
-          <button
-            onClick={handleFullscreen}
-            className="p-2 bg-blue-500 text-white rounded"
-          >
-            Go Fullscreen
-          </button>
-        </div>
-      </div>
-    );
-  }
+  // if (!fullScreen) {
+  //   return (
+  //     <div className="w-full h-full flex justify-center items-center">
+  //       <div className="bg-white p-8 rounded shadow-lg text-center">
+  //         <h2 className="mb-4 text-lg font-bold">Enter Fullscreen</h2>
+  //         <button
+  //           onClick={handleFullscreen}
+  //           className="p-2 bg-blue-500 text-white rounded"
+  //         >
+  //           Go Fullscreen
+  //         </button>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
-      <div className="h-full flex flex-col justify-start items-center gap-[2vh] w-fit z-[45] relative">
+      <div
+        className={`${
+          os === "mobile"
+            ? "h-auto flex-wrap flex-row pt-[2vh] px-[2vw] gap-[8vh] justify-start"
+            : "h-full  flex-col justify-start items-center gap-[2vh]"
+        }  w-fit z-[45] relative flex`}
+      >
         {fileStructure?.getRootNodes().map((node) => {
-          return node.renderNodeVertical(50, 50, (action: string) => {
-            onOpen(action, action === "explorer" ? "/projects/" : "");
-          });
+          return node.renderNodeVertical(
+            os === "mobile" ? 60 : 50,
+            os === "mobile" ? 60 : 50,
+            (action: string) => {
+              onOpen(action, action === "explorer" ? "/projects/" : "");
+            }
+          );
         })}
       </div>
       <BottomNavbar os={os} />

@@ -7,6 +7,7 @@ import {
 } from "react-icons/vsc";
 import Modal from "./Modal";
 import useStore from "@/store";
+import ModalHeader from "./ModalHeader";
 
 const NotepadModal = ({
   os,
@@ -17,7 +18,7 @@ const NotepadModal = ({
   open: boolean;
   zIndex: string;
 }) => {
-  const [maximized, setMaximized] = useState(false);
+  const [maximized, setMaximized] = useState(os === "mobile");
   const {
     onMinimize: rawOnMinimize,
     onClose: rawOnClose,
@@ -29,8 +30,8 @@ const NotepadModal = ({
     () => rawOnMinimize("notepad"),
   ];
   let content;
-  switch (currNotepadElem?.toLowerCase() || "about") {
-    case "about":
+  switch (currNotepadElem?.toLowerCase() || "connect with me") {
+    case "connect with me":
       content = (
         <>
           <p className="font-bold">
@@ -169,7 +170,15 @@ const NotepadModal = ({
   return (
     <Modal maximized={maximized} open={open} zIndex={zIndex}>
       <>
-        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 relative">
+        <ModalHeader
+          os={os}
+          onClose={onClose}
+          title={currNotepadElem || "Connect with me"}
+          onMinimize={onMinimize}
+          onMaximize={() => setMaximized(!maximized)}
+          maximized={maximized}
+        />
+        {/* <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 relative">
           <div
             className={`flex items-center space-x-2 absolute right-0 h-full ${
               os === "macos" ? "right-2" : "right-0"
@@ -230,7 +239,7 @@ const NotepadModal = ({
           <div className="text-sm font-medium capitalize">
             {currNotepadElem || "Connect with me"}
           </div>
-        </div>
+        </div> */}
 
         <div className="p-4 h-[40vh] min-h-full"> {content}</div>
       </>

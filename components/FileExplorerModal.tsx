@@ -19,6 +19,7 @@ import { RiCloseFill } from "react-icons/ri";
 import Modal from "./Modal";
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import useStore from "@/store";
+import ModalHeader from "./ModalHeader";
 
 const FileExplorerModal = ({
   os,
@@ -29,7 +30,7 @@ const FileExplorerModal = ({
   open: boolean;
   zIndex: string;
 }) => {
-  const [maximized, setMaximized] = useState(false);
+  const [maximized, setMaximized] = useState(os === "mobile");
   const {
     fileStructure,
     history,
@@ -41,8 +42,6 @@ const FileExplorerModal = ({
     onOpen,
     onClose: rawOnClose,
   } = useStore();
-  console.log("🚀 ~ currentHistoryIndex:", currentHistoryIndex);
-  console.log("🚀 ~ history:", history);
   const [onClose, onMinimize] = [
     () => rawOnClose("explorer"),
     () => rawOnMinimize("explorer"),
@@ -50,7 +49,15 @@ const FileExplorerModal = ({
   return (
     <Modal maximized={maximized} open={open} zIndex={zIndex}>
       <>
-        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 relative">
+        <ModalHeader
+          os={os}
+          onClose={onClose}
+          title="File Explorer"
+          onMinimize={onMinimize}
+          onMaximize={() => setMaximized(!maximized)}
+          maximized={maximized}
+        />
+        {/* <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 relative">
           <div
             className={`flex items-center space-x-2 absolute  h-full ${
               os === "macos" ? "right-2" : "right-0"
@@ -78,25 +85,29 @@ const FileExplorerModal = ({
               </>
             ) : (
               <>
-                <div
-                  onClick={() => {
-                    // setMinimized(!minimized);
-                    onMinimize();
-                  }}
-                  className="p-1 hover:bg-gray-400 hover:bg-opacity-40 h-full items-center flex px-[1vw] duration-150 transition-all"
-                >
-                  <VscChromeMinimize className="text-black" />
-                </div>
-                <div
-                  onClick={() => setMaximized(!maximized)}
-                  className="p-1 hover:bg-gray-400 hover:bg-opacity-40 h-full items-center flex px-[1vw] duration-150 transition-all"
-                >
-                  {maximized ? (
-                    <VscChromeRestore className="text-black" />
-                  ) : (
-                    <VscChromeMaximize className="text-black" />
-                  )}
-                </div>
+                {os === "mobile" ? null : (
+                  <>
+                    <div
+                      onClick={() => {
+                        // setMinimized(!minimized);
+                        onMinimize();
+                      }}
+                      className="p-1 hover:bg-gray-400 hover:bg-opacity-40 h-full items-center flex px-[1vw] duration-150 transition-all"
+                    >
+                      <VscChromeMinimize className="text-black" />
+                    </div>
+                    <div
+                      onClick={() => setMaximized(!maximized)}
+                      className="p-1 hover:bg-gray-400 hover:bg-opacity-40 h-full items-center flex px-[1vw] duration-150 transition-all"
+                    >
+                      {maximized ? (
+                        <VscChromeRestore className="text-black" />
+                      ) : (
+                        <VscChromeMaximize className="text-black" />
+                      )}
+                    </div>
+                  </>
+                )}
                 <div
                   onClick={() => {
                     onClose();
@@ -109,7 +120,7 @@ const FileExplorerModal = ({
             )}
           </div>
           <div className="text-sm font-medium">File Explorer</div>
-        </div>
+        </div> */}
         <div className="px-2 py-1 border-b border-gray-200 bg-gray-100 flex items-center">
           <div className="flex items-center mr-5 gap-2">
             <IoMdArrowBack

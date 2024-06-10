@@ -35,7 +35,8 @@ class TreeNode {
   renderNodeVertical(
     height: number,
     width: number,
-    onclick: (action: string) => void
+    onclick: (action: string) => void,
+    mobile?: boolean
   ): JSX.Element {
     return (
       <div
@@ -50,12 +51,19 @@ class TreeNode {
         <Image
           src={this.icon}
           alt={"chrome"}
-          height={50}
-          width={50}
+          height={height}
+          width={width}
           className="z-20"
         />
-        <p className="font-extralight text-sm text-white z-20">{this.key}</p>
-        <div className="overlay absolute top-0 left-0 w-full h-full bg-blue-500 opacity-0 transition-opacity duration-300 hover:opacity-20 focus:opacity-50"></div>
+        <p
+          className="font-extralight text-sm text-white z-20"
+          style={mobile ? { marginTop: "-4px" } : {}}
+        >
+          {this.key}
+        </p>
+        {mobile ? null : (
+          <div className="overlay absolute top-0 left-0 w-full h-full bg-blue-500 opacity-0 transition-opacity duration-300 hover:opacity-20 focus:opacity-50"></div>
+        )}
       </div>
     );
   }

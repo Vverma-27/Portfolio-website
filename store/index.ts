@@ -25,7 +25,7 @@ const useStore = create((set, get: () => IStore) => {
   return {
     history: [],
     tabsOpen: [],
-    currNotepadElem: "about",
+    currNotepadElem: "connect with me",
     pushHistory: (path: string) => set({ history: [...get().history, path] }),
     setHistory: (history: string[]) => set({ history }),
     setTabsOpen: (tabsOpen: { status: "open" | "minimized"; name: string }[]) =>
@@ -78,7 +78,7 @@ const useStore = create((set, get: () => IStore) => {
         // }
       }
       if (name === "notepad") {
-        set({ currNotepadElem: notepadElem || "about" });
+        set({ currNotepadElem: notepadElem || "connect with me" });
       }
       if (tabsOpen.map((e) => e.name).includes(name))
         set({

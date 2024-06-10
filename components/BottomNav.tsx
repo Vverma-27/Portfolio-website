@@ -41,9 +41,18 @@ const BottomNavbar = ({ os }: { os: string }) => {
   return (
     <nav className="fixed bottom-0 left-0 w-full bg-black bg-opacity-70 backdrop-blur-md border-t border-gray-700 z-[100] ">
       <div className="max-w-7xl mx-auto px-4 pb-1.5 pt-0.5">
-        <div className="h-[6vh] flex items-center justify-center">
-          <div className="flex items-center space-x-1 h-full">
+        <div
+          className={`${
+            os === "mobile" ? "h-[8vh]" : "h-[6vh]"
+          } flex items-center justify-center`}
+        >
+          <div
+            className={`flex items-center ${
+              os === "mobile" ? "space-x-6" : "space-x-1"
+            } h-full`}
+          >
             {navList.map((e) => {
+              if (e.name === "start" && os === "mobile") return null;
               return (
                 <div
                   onClick={() => {
@@ -53,11 +62,11 @@ const BottomNavbar = ({ os }: { os: string }) => {
                   className="h-full relative aspect-square  hover:bg-gray-500 hover:bg-opacity-35 flex justify-center items-center transition-colors rounded-md duration-500"
                 >
                   <Image
-                    className="active:h-[28px] active:w-[28px] transition-all ease-linear duration-75"
+                    className=" active:scale-75 transition-all ease-linear duration-75"
                     src={e.icon}
                     alt="Start"
-                    width={32}
-                    height={32}
+                    width={!(os === "mobile") ? 32 : 50}
+                    height={!(os === "mobile") ? 32 : 50}
                   />
                   {(e.name && e.name !== "start" && getIndicator(e.name)) ||
                     null}

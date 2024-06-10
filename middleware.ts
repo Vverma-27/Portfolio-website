@@ -25,12 +25,12 @@ export function middleware(request: NextRequest) {
 
   const os = getOS(userAgent);
   const mobile = isMobile(userAgent);
-  requestHeaders.set("OS", os);
+  requestHeaders.set("OS", mobile ? "mobile" : os);
 
   // Redirect mobile users if the website is intended only for desktops
-  if (mobile) {
-    return NextResponse.redirect("/mobile-not-supported");
-  }
+  // if (mobile) {
+  //   return NextResponse.redirect("/mobile-not-supported");
+  // }
 
   return NextResponse.next({
     request: {

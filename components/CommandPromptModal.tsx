@@ -7,6 +7,7 @@ import {
 } from "react-icons/vsc";
 import Modal from "./Modal";
 import useStore from "@/store";
+import ModalHeader from "./ModalHeader";
 
 const CommandPromptModal = ({
   os,
@@ -17,7 +18,7 @@ const CommandPromptModal = ({
   open: boolean;
   zIndex: string;
 }) => {
-  const [maximized, setMaximized] = useState(false);
+  const [maximized, setMaximized] = useState(os === "mobile");
   const [typedCommand, setTypedCommand] = useState("");
   const [showResponse, setShowResponse] = useState(false);
   const { onMinimize: rawOnMinimize, onClose: rawOnClose } = useStore();
@@ -58,8 +59,16 @@ const CommandPromptModal = ({
   return (
     <Modal maximized={maximized} open={open} theme="dark" zIndex={zIndex}>
       <>
-        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 relative bg-gray-800 text-white">
-          <div className="text-sm font-medium">Command Prompt</div>
+        <ModalHeader
+          os={os}
+          onClose={onClose}
+          title="Command Prompt"
+          onMinimize={onMinimize}
+          onMaximize={() => setMaximized(!maximized)}
+          maximized={maximized}
+          dark
+        />
+        {/* <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 relative bg-gray-800 text-white">
           <div
             className={`flex items-center space-x-2 absolute right-0 h-full ${
               os === "macos" ? "right-2" : "right-0"
@@ -107,7 +116,8 @@ const CommandPromptModal = ({
               </>
             )}
           </div>
-        </div>
+          <div className="text-sm font-medium">Command Prompt</div>
+        </div> */}
         <div className="p-4 bg-black text-white font-mono h-[40vh] min-h-full">
           <div>C:\Users\Vihaan&gt; {typedCommand}</div>
           {showResponse ? (
