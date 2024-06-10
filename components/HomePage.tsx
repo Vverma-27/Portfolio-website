@@ -186,21 +186,21 @@ const HomePage = ({ os }: { os: string }) => {
     }
   };
 
-  // if (!fullScreen) {
-  //   return (
-  //     <div className="w-full h-full flex justify-center items-center">
-  //       <div className="bg-white p-8 rounded shadow-lg text-center">
-  //         <h2 className="mb-4 text-lg font-bold">Enter Fullscreen</h2>
-  //         <button
-  //           onClick={handleFullscreen}
-  //           className="p-2 bg-blue-500 text-white rounded"
-  //         >
-  //           Go Fullscreen
-  //         </button>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  if (!fullScreen) {
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <div className="bg-white p-8 rounded shadow-lg text-center">
+          <h2 className="mb-4 text-lg font-bold">Enter Fullscreen</h2>
+          <button
+            onClick={handleFullscreen}
+            className="p-2 bg-blue-500 text-white rounded"
+          >
+            Go Fullscreen
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
