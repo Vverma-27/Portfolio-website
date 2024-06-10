@@ -3,7 +3,7 @@ import useStore from "@/store";
 import Image from "next/image";
 import React, { useState } from "react";
 
-const BottomNavbar = () => {
+const BottomNavbar = ({ os }: { os: string }) => {
   const { tabsOpen, onOpen } = useStore();
   const getIndicator = (name: string) => {
     const tab = tabsOpen.find((tab) => {
@@ -23,10 +23,19 @@ const BottomNavbar = () => {
     return null;
   };
   const navList = [
-    { icon: "/windows-start.png", name: "start" },
-    { icon: "/file-explorer.png", name: "explorer" },
+    {
+      icon: os === "macos" ? "/finder.png" : "/windows-start.png",
+      name: "start",
+    },
+    {
+      icon: os === "macos" ? "/folder-macos.png" : "/file-explorer.png",
+      name: "explorer",
+    },
     { icon: "/command-prompt.png", name: "prompt" },
-    { icon: "/notepad.png", name: "notepad" },
+    {
+      icon: os === "macos" ? "/notepad-macos.png" : "/notepad.png",
+      name: "notepad",
+    },
   ];
 
   return (

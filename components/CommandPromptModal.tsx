@@ -60,7 +60,11 @@ const CommandPromptModal = ({
       <>
         <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 relative bg-gray-800 text-white">
           <div className="text-sm font-medium">Command Prompt</div>
-          <div className="flex items-center space-x-2 absolute right-0 h-full">
+          <div
+            className={`flex items-center space-x-2 absolute right-0 h-full ${
+              os === "macos" ? "right-2" : "right-0"
+            }`}
+          >
             {os === "macos" ? (
               <>
                 <div

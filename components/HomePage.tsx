@@ -19,12 +19,17 @@ const HomePage = ({ os }: { os: string }) => {
       type: "file",
     },
     {
-      icon: "/folder.png",
+      icon: os === "macos" ? "/folder-macos.png" : "/folder.png",
       title: "Projects",
       action: "explorer",
       type: "folder",
     },
-    { icon: "/notepad.png", title: "Connect", action: "notepad", type: "file" },
+    {
+      icon: os === "macos" ? "/notepad-macos.png" : "/notepad.png",
+      title: "Connect",
+      action: "notepad",
+      type: "file",
+    },
     {
       icon: "/github.png",
       title: "Github",
@@ -137,7 +142,7 @@ const HomePage = ({ os }: { os: string }) => {
         "Projects",
         project.name,
         "folder",
-        "/folder.png",
+        os === "macos" ? "/folder-macos.png" : "/folder.png",
         "",
         "explorer"
       );
@@ -154,7 +159,7 @@ const HomePage = ({ os }: { os: string }) => {
         project.name,
         "Project Description",
         "file",
-        "/notepad.png",
+        os === "macos" ? "/notepad-macos.png" : "/notepad.png",
         "",
         "notepad"
       );
@@ -202,7 +207,7 @@ const HomePage = ({ os }: { os: string }) => {
           });
         })}
       </div>
-      <BottomNavbar />
+      <BottomNavbar os={os} />
       <FileExplorerModal
         os={os}
         open={
