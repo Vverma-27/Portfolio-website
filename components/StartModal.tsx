@@ -47,7 +47,7 @@ const StartModal = ({
         {/* Files List */}
         <div className="p-4 flex justify-around flex-wrap gap-x-10 gap-y-8">
           {fileStructure?.getRootNodes().map((node) => {
-            return node.renderNodeVertical(24, 24, (action: string) => {
+            return node.renderNodeVertical(32, 32, (action: string) => {
               onOpen(
                 action,
                 action === "explorer" ? "/projects/" : "",
