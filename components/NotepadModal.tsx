@@ -60,8 +60,8 @@ const NotepadModal = ({
             and TypeScript, it employs a custom Express server for backend
             functionality and is styled with Tailwind CSS for a modern and
             responsive user interface. The app facilitates secure and efficient
-            payment transactions, ensuring reliable record-keeping for the NGO's
-            financial operations.
+            payment transactions, ensuring reliable record-keeping for the
+            NGO&pos;s financial operations.
           </p>
         </>
       );
@@ -77,12 +77,12 @@ const NotepadModal = ({
           <p className="font-light text-sm leading-6 mt-2">
             Developed a sophisticated stone-paper-scissors game with both AI and
             multiplayer modes. The AI opponent is designed using advanced
-            pattern recognition techniques to adapt and respond to the player's
-            strategies, providing a challenging and dynamic gameplay experience.
-            In multiplayer mode, users can easily create and share a game room
-            link to invite friends for a match. The game utilizes WebSockets for
-            real-time communication, ensuring a seamless and interactive
-            multiplayer experience.
+            pattern recognition techniques to adapt and respond to the
+            player&pos;s strategies, providing a challenging and dynamic
+            gameplay experience. In multiplayer mode, users can easily create
+            and share a game room link to invite friends for a match. The game
+            utilizes WebSockets for real-time communication, ensuring a seamless
+            and interactive multiplayer experience.
           </p>
         </>
       );
@@ -95,7 +95,7 @@ const NotepadModal = ({
           <p className="font-bold">Project Description:</p>
           <p className="font-light text-sm leading-6 mt-2">
             This application is developed using React and TypeScript, leveraging
-            the React DnD library to replicate Instagram's create mode. It
+            the React DnD library to replicate Instagram&pos;s create mode. It
             enables users to design and customize memes, providing functionality
             for exporting the finished creations.
           </p>

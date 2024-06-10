@@ -175,9 +175,13 @@ const HomePage = ({ os }: { os: string }) => {
       elem.requestFullscreen().catch((err) => {
         console.error("Error attempting to enable full-screen mode:", err);
       });
+      //@ts-ignore
     } else if (elem.webkitRequestFullscreen) {
+      //@ts-ignore
       elem.webkitRequestFullscreen();
+      //@ts-ignore
     } else if (elem.msRequestFullscreen) {
+      //@ts-ignore
       elem.msRequestFullscreen();
     }
   };

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import * as THREE from "three";
+//@ts-ignore
 import Halo from "vanta/dist/vanta.halo.min";
 
 const VantaBg = ({
@@ -48,6 +49,7 @@ const VantaBg = ({
       );
     }
     return () => {
+      //@ts-ignore
       if (vantaEffect) vantaEffect.destroy();
     };
   }, [vantaEffect]);

@@ -101,11 +101,14 @@ const useStore = create((set, get: () => IStore) => {
       else
         set({
           tabsOpen: [
+            //@ts-ignore
             ...tabsOpen
               .filter((e) => e.name !== "start")
               .map((e) => ({ ...e, status: "minimized" })),
+            //@ts-ignore
             { name, status: "open" },
-            { name: "start", status: "minimized" },
+            //@ts-ignore
+            name !== "start" ? { name: "start", status: "minimized" } : {},
           ],
         });
     },

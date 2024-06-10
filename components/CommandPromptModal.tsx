@@ -27,7 +27,7 @@ const CommandPromptModal = ({
   ];
 
   useEffect(() => {
-    let commandTimeout, responseTimeout;
+    let commandTimeout: any, responseTimeout: any;
     if (open) {
       let command = "whoami";
       let index = 0;
