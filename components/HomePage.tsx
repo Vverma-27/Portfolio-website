@@ -178,12 +178,16 @@ const HomePage = ({ os }: { os: string }) => {
       //@ts-ignore
     } else if (elem.webkitRequestFullscreen) {
       //@ts-ignore
-      elem.webkitRequestFullscreen();
+      elem.webkitRequestFullscreen().catch((err) => {
+        console.error("Error attempting to enable full-screen mode:", err);
+      });
       //@ts-ignore
     } else if (elem.msRequestFullscreen) {
       //@ts-ignore
-      elem.msRequestFullscreen();
-    }
+      elem.msRequestFullscreen().catch((err) => {
+        console.error("Error attempting to enable full-screen mode:", err);
+      });
+    } else setFullScreen(true);
   };
 
   if (!fullScreen) {
