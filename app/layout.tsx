@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Vihaan | Developer",
   description: "Portfolio website of Vihaan Verma.",
+  icons: {
+    icon: "/vihaan.png", // Set the path to your favicon here
+  },
 };
 
 export default function RootLayout({
@@ -17,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/vihaan.png" />
+      </head>
       <body className={inter.className}>
         <VantaBg>{children}</VantaBg>
       </body>
