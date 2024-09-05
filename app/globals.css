@@ -17,6 +17,15 @@ main {
   padding: 1vmin;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 /* main.windows {
   background-image: url(../public/wallpaper.jpg);
 }

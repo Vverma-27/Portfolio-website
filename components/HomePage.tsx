@@ -45,6 +45,13 @@ const HomePage = ({ os }: { os: string }) => {
   ];
   const projects = [
     {
+      name: "QDine",
+      icon: "/qdine.png",
+      link: "https://howdy.resandcaf.online?table=4",
+      adminLink: "https://admin.resandcaf.online",
+      githubLink: "https://github.com/Vverma-27/Res-Cafe",
+    },
+    {
       name: "Kalyan Trust",
       icon: "/kalyan.png",
       link: "https://kalyantrust.org/",
@@ -53,7 +60,7 @@ const HomePage = ({ os }: { os: string }) => {
     {
       name: "Tragency Media",
       icon: "/tragency.png",
-      link: "https://tragency-server.onrender.com",
+      link: "https://tragency-media-33590e815193.herokuapp.com/",
       githubLink: "https://github.com/Tragency-Media",
     },
     {
@@ -73,12 +80,6 @@ const HomePage = ({ os }: { os: string }) => {
       icon: "/stills.png",
       link: "",
       githubLink: "https://github.com/Vverma-27/Stills",
-    },
-    {
-      name: "Compare Spotify",
-      icon: "/spotify.png",
-      link: "https://compare-spotify.vercel.app/",
-      githubLink: "https://github.com/Vverma-27/compare-spotify",
     },
   ];
   const { tabsOpen, setTabsOpen, onOpen, pushHistory } = useStore();
@@ -148,6 +149,14 @@ const HomePage = ({ os }: { os: string }) => {
       );
       if (project.link)
         tree.insert(project.name, "Visit", "file", project.icon, project.link);
+      if (project.adminLink)
+        tree.insert(
+          project.name,
+          "Admin Panel",
+          "file",
+          project.icon,
+          project.adminLink
+        );
       tree.insert(
         project.name,
         "Github",

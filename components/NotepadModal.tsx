@@ -47,6 +47,36 @@ const NotepadModal = ({
         </>
       );
       break;
+    case "qdine":
+      content = (
+        <>
+          <p className="font-bold">
+            Skills: AWS, React, Express, MongoDB, TypeScript, Socket.IO, Caddy,
+            Docker, Subdomaining, React Charts
+          </p>
+          <br />
+          <p className="font-bold">Project Description:</p>
+          <p className="font-light text-sm leading-6 mt-2">
+            This comprehensive fullstack application revolutionizes the
+            restaurant ordering process through QR code technology. Built with
+            React and TypeScript on the frontend, and Express with MongoDB on
+            the backend, it offers a seamless experience for both customers and
+            restaurant owners. Customers can scan a QR code to access the menu,
+            select dishes, specify split payments, and complete orders directly
+            from their phones. For restaurant management, the system includes an
+            advanced admin dashboard featuring real-time analytics, employee and
+            inventory management, customer database with insights, and
+            streamlined payout options. The application leverages Socket.IO for
+            real-time updates, is containerized with Docker for easy deployment,
+            and utilizes Caddy for efficient reverse proxying and automatic
+            HTTPS. AWS services are employed for robust cloud infrastructure,
+            while subdomaining allows for multi-tenant support. React Charts are
+            integrated to visualize critical business metrics, providing owners
+            with actionable insights to optimize their operations.
+          </p>
+        </>
+      );
+      break;
     case "kalyan trust":
       content = (
         <>
@@ -145,24 +175,6 @@ const NotepadModal = ({
         </>
       );
       break;
-    case "compare spotify":
-      content = (
-        <>
-          <p className="font-bold">
-            Skills: React, Redux, Spotify API, Typescript
-          </p>
-          <br />
-          <p className="font-bold">Project Description:</p>
-          <p className="font-light text-sm leading-6 mt-2">
-            I developed an application for two users to log in and compare their
-            Spotify tastes across three key parameters: genre, artist, and
-            overall taste match. The app showcases the top five artists that
-            both users listen to, offering an engaging insight into their music
-            preferences and fostering shared experiences.
-          </p>
-        </>
-      );
-      break;
     default:
       break;
   }
@@ -241,7 +253,7 @@ const NotepadModal = ({
           </div>
         </div> */}
 
-        <div className="p-4 h-[40vh] min-h-full"> {content}</div>
+        <div className="p-4 h-[40vh] min-h-full overflow-y-auto">{content}</div>
       </>
     </Modal>
   );
