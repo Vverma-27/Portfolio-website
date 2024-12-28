@@ -92,7 +92,7 @@ const NotepadModal = ({
             functionality and is styled with Tailwind CSS for a modern and
             responsive user interface. The app facilitates secure and efficient
             payment transactions, ensuring reliable record-keeping for the
-            NGO&pos;s financial operations.
+            NGO&apos;s financial operations.
           </p>
         </>
       );
@@ -109,7 +109,7 @@ const NotepadModal = ({
             Developed a sophisticated stone-paper-scissors game with both AI and
             multiplayer modes. The AI opponent is designed using advanced
             pattern recognition techniques to adapt and respond to the
-            player&pos;s strategies, providing a challenging and dynamic
+            player&apos;s strategies, providing a challenging and dynamic
             gameplay experience. In multiplayer mode, users can easily create
             and share a game room link to invite friends for a match. The game
             utilizes WebSockets for real-time communication, ensuring a seamless
@@ -126,9 +126,30 @@ const NotepadModal = ({
           <p className="font-bold">Project Description:</p>
           <p className="font-light text-sm leading-6 mt-2">
             This application is developed using React and TypeScript, leveraging
-            the React DnD library to replicate Instagram&pos;s create mode. It
+            the React DnD library to replicate Instagram&apos;s create mode. It
             enables users to design and customize memes, providing functionality
             for exporting the finished creations.
+          </p>
+        </>
+      );
+      break;
+    case "monopoly online":
+      content = (
+        <>
+          <p className="font-bold">
+            Skills: Typescript, React, Socket.io, WebRTC, Zustand
+          </p>
+          <br />
+          <p className="font-bold">Project Description:</p>
+          <p className="font-light text-sm leading-6 mt-2">
+            This fullstack online Monopoly game allows users to create or join
+            games and play with friends. The game features dynamic
+            functionalities like property auctions, a marketplace for selling
+            properties, and trading between players. Additionally, it includes a
+            video calling feature powered by WebRTC, providing an immersive and
+            interactive experience. The application is built for seamless
+            real-time communication and game state management using Socket.io
+            and Zustand, ensuring a smooth and engaging gameplay experience.
           </p>
         </>
       );

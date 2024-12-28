@@ -47,7 +47,7 @@ const HomePage = ({ os }: { os: string }) => {
     {
       name: "QDine",
       icon: "/qdine.png",
-      link: "https://howdy.resandcaf.online?table=4",
+      link: "https://vihaanscafe.resandcaf.online?table=4",
       adminLink: "https://admin.resandcaf.online",
       githubLink: "https://github.com/Vverma-27/Res-Cafe",
     },
@@ -56,6 +56,12 @@ const HomePage = ({ os }: { os: string }) => {
       icon: "/kalyan.png",
       link: "https://kalyantrust.org/",
       githubLink: "https://github.com/Vverma-27/Kalyan",
+    },
+    {
+      name: "Monopoly Online",
+      icon: "/monopoly-logo.png",
+      link: "https://monopoly-vv.vercel.app",
+      githubLink: "https://github.com/Vverma-27/Monopoly",
     },
     {
       name: "Tragency Media",
@@ -84,6 +90,7 @@ const HomePage = ({ os }: { os: string }) => {
   ];
   const { tabsOpen, setTabsOpen, onOpen, pushHistory } = useStore();
   const [fullScreen, setFullScreen] = useState(false);
+  // const [skipFullscreen, setSkipFullscreen] = useState(false);
 
   useEffect(() => {
     const handleFullScreenChange = () => {
@@ -203,13 +210,23 @@ const HomePage = ({ os }: { os: string }) => {
     return (
       <div className="w-full h-full flex justify-center items-center">
         <div className="bg-white p-8 rounded shadow-lg text-center">
-          <h2 className="mb-4 text-lg font-bold">Enter Fullscreen</h2>
-          <button
-            onClick={handleFullscreen}
-            className="p-2 bg-blue-500 text-white rounded"
-          >
-            Go Fullscreen
-          </button>
+          <h2 className="mb-4 text-lg font-bold">
+            Go Fullscreen for an Immersive Experience
+          </h2>
+          <div className="flex gap-4 justify-center">
+            <button
+              onClick={handleFullscreen}
+              className="p-2 bg-blue-500 text-white rounded"
+            >
+              Go Fullscreen
+            </button>
+            <button
+              onClick={() => setFullScreen(true)}
+              className="p-2 bg-gray-500 text-white rounded"
+            >
+              No Fullscreen
+            </button>
+          </div>
         </div>
       </div>
     );
